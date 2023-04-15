@@ -62,8 +62,12 @@ public class FileOps {
 	public void deleteFile(String fileName) {
 		FileOps.setFileName(fileName);
 		try {
-			Files.deleteIfExists(Paths.get("./src/main/resources/"+FILE_NAME));
-			System.out.println("File "+fileName+" is deleted");
+			boolean deleted = Files.deleteIfExists(Paths.get("./src/main/resources/"+FILE_NAME));
+			if (deleted) {
+				System.out.println("File "+fileName+" is deleted");
+			} else {
+				System.out.println("File "+fileName+" not present");
+			}
 		} catch (IOException e) {
 			System.out.println("Error while deleting file");
 			e.printStackTrace();

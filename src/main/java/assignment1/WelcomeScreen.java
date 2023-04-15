@@ -44,7 +44,7 @@ public class WelcomeScreen {
 	public void askUserChoice(boolean value) {
 		boolean exit=value;
 		String fileName;
-		FileOps file = new FileOps();
+		FileOps file = null;
 		
 		UserInputs ui = new UserInputs();
 
@@ -57,23 +57,27 @@ public class WelcomeScreen {
 
 			case "1":
 				// Call sort method
+				file = new FileOps();
 				file.sortByName();
 				break;
 
 			case "2":
 				// add method
+				file = new FileOps();
 				fileName = ui.getFileName();
 				file.addFile(fileName);
 				break;
 
 			case "3":
 				// delete file
+				file = new FileOps();
 				fileName = ui.getFileName();
 				file.deleteFile(fileName);
 				break;
 
 			case "4":
 				// search for file
+				file = new FileOps();
 				fileName = ui.getFileName();
 				boolean filePresent = file.searchForFile(fileName);
 				
